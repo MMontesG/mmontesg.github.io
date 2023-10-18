@@ -730,12 +730,6 @@ EL PRODUCTO DE SU EMPAQUE AL VACÍO</p></li>
       <a class="salir-btn transition salir-form"><p class="vertical absolute"><span class="vertical relative">x</span>&nbsp;&nbsp;Salir</p></a>
       <div class="cont-form absolute center">
         <h1 class="red absolute" style="top: 5%; left: 3.4rem;">Contáctanos<br><span class="absolute linea" style="background-color: #D8595A; left: 5rem; margin-top: 0.7rem;"></span></h1>
-
-        <?php
-        $action=$_REQUEST['action'];
-        if ($action=="")    /* display the contact form */
-        {
-        ?>
         <form class="absolute" style="top: 31%;"  action="" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="submit">
                 <input name="name" type="text" value="" placeholder="Nombre:" size="30" /><br>
@@ -744,25 +738,6 @@ EL PRODUCTO DE SU EMPAQUE AL VACÍO</p></li>
                 <textarea name="message" value="mensaje" placeholder="Mensaje:" rows="7" cols="30"></textarea><br>
                 <input type="submit" value="Enviar" />
         </form>
-        <?php
-        }
-        else                /* send the submitted data */
-        {
-        $name=$_REQUEST['name'];
-        $email=$_REQUEST['email'];
-        $message=$_REQUEST['message'];
-        if (($name=="")||($email=="")||($message==""))
-          {
-          echo "Rellene los campos obligatorios <a href=\"\">Volver al formulario.</a>";
-          }
-        else{
-          $from="From: $name <$email>\r\nReturn-path: $email";
-          $subject="Mensaje del formulario de contacto de www.gastropolisbogota.com";
-          mail("gerencia@gastropolisbogota.com", $subject, $message, $from);
-          echo "<h2>Mensaje enviado!</h2>";
-          }
-        }
-        ?>
       </div>
 
     </div>
